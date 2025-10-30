@@ -63,9 +63,8 @@ def run_full_game(deck: list[dict], player: dict, dealer: dict) -> None:
             cur_card = deck.pop()
             player["hand"].append(cur_card)
 
-            print("==============================")
             print("YOU CHOOSE TO HIT!")
-            print(f"THE CARD YOU GOT IS: {cur_card["rank"]}{cur_card["suite"]}\n")
+            print(f"THE CARD YOU GOT IS: {cur_card["rank"]} OF {cur_card["suite"]}\n")
 
             cur_total = calculate_hand_value(player["hand"])
             if cur_total > 21:
@@ -79,9 +78,8 @@ def run_full_game(deck: list[dict], player: dict, dealer: dict) -> None:
         player_total = calculate_hand_value(player["hand"])
         dealer_total = calculate_hand_value(dealer["hand"])
 
-        # print("==============================")
         print("YOU CHOOSE TO FINISHED YOU TURN!")
-        print("DEALER TURN...\n")
+        print("DEALER'S TURN...\n")
         time.sleep(2)
         if dealer_play(deck, dealer):
             
@@ -95,5 +93,4 @@ def run_full_game(deck: list[dict], player: dict, dealer: dict) -> None:
             else:
                 print(f"TIE!\nYOU BOTH GOT {dealer_total} POINTS!\n")
                 break
-        else:
-            break
+        break

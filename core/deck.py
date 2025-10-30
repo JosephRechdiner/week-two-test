@@ -4,7 +4,7 @@ def build_standard_deck() -> list[dict]:
     special_rank = {1: "A", 11: "J", 12: "Q", 13: "K"}
     result = []
     for i in range(1, 14):
-        for suite in ["H", "D", "S", "C"]:
+        for suite in ["HEARTS", "DIAMONDS", "SPADES", "CLUBS"]:
             if i not in special_rank:
                 result.append({"rank": str(i), "suite": suite})
             else:
@@ -28,7 +28,7 @@ def shuffle_by_suit(deck: list[dict], swaps: int = 5000) -> list[dict]:
             # cheking for first card suite match the second index mod
             mod_match = False
             first_card_suite = deck[first_idx]["suite"]
-            if (first_card_suite == "H" and second_idx % 5 == 0) or (first_card_suite == "C" and second_idx % 3 == 0) or (first_card_suite == "D" and second_idx % 2 == 0) or (first_card_suite == "S" and second_idx % 7 == 0):
+            if (first_card_suite == "HEARTS" and second_idx % 5 == 0) or (first_card_suite == "CLUBS" and second_idx % 3 == 0) or (first_card_suite == "DIAMONDS" and second_idx % 2 == 0) or (first_card_suite == "SPADES" and second_idx % 7 == 0):
                 mod_match = True
             
             # if both are ok breaking out of the loop and swapping
